@@ -1,0 +1,31 @@
+Parking lot System
+
+Requirement :-
+
+Problem Statement
+Design and implement a Parking Lot Management System that supports parking and unparking of vehicles, parkingTicket generation, fee calculation, and management of multiple floors and spot types.
+
+Requirements
+Multiple Floors: The parking lot can have multiple levels
+Parking Spots: Each floor has multiple parking spots of different types (e.g., two wheeler , four  wheeler).
+Vehicle Types: Support for different vehicle types (see vehicletype/).
+Ticketing: Generate a parkingTicket when a vehicle is entered
+Unparking: Allow vehicles to unpark and calculate the parking fee.
+Fee Calculation: Support for different cost strategies (see cost/).
+Spot Allocation: Allocate the nearest available spot of the correct type.
+Extensibility: Easy to add new vehicle types, spot types, or cost strategies.
+
+Core Entries :-
+
+ParkingLot --> single instance
+ParkingBuilding
+ParkingLevel
+ParkingSpot
+Ticket
+Vechicle(with VehicleType)
+
+
+UML -->
+
+
+
