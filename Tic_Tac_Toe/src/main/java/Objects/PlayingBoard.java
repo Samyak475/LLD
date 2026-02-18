@@ -8,10 +8,17 @@ import java.util.List;
 public class PlayingBoard {
    private int size;
    private PlayingPiece[][] board;
-
+   private int row[];
+   private int col[];
+   private int diag;
+   private int antiDiag;
     public  PlayingBoard(int size){
         this.size= size;
         this.board= new PlayingPiece[size][size];
+        this.row = new int[size];
+        this.col = new int[size];
+        this.diag = 0;
+        this.antiDiag = 0;
     }
     public boolean addPiece(int row , int col , PlayingPiece pieceType){
         if(row<0||row>=size||col<0||col>=size) return false;
@@ -51,9 +58,11 @@ public class PlayingBoard {
         }
         return emptyPlaces;
     }
-    public boolean checkWinner(int row,int col,PlayingPiece playingPiece){
+    public boolean checkWinner(int rc,int cc,PlayingPiece playingPiece){
+/*
         boolean rowMatch = true, colMatch = true, diagMatch = true , antiDiagMatch = true;
-        for(int r = 0; r<size ; r++){
+*/
+        /*for(int r = 0; r<size ; r++){
             if(board[r][col]!=playingPiece ){
                 rowMatch=false;
                 break;
@@ -77,7 +86,23 @@ public class PlayingBoard {
                 antiDiagMatch=false;
                 break;
             }
-        }
+        }*/
+/*
         return rowMatch||colMatch||diagMatch||antiDiagMatch;
+*/
+        int val = playingPiece.pieceType == PieceType.Y ? 1:-1;
+
+            row[rc]+=val;
+            col[cc]+=val;
+            if(rc ==cc ){
+                diag +=val;
+            }
+            if(rc+cc==size-1){
+                antiDiag +=val;
+            }
+            int target = size *val;
+
+        return row[rc] == target || col[cc] == target || diag == target || antiDiag == target;
+
     }
 }

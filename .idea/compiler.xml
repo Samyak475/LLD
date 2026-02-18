@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ParkingLot" />
         <module name="Tic_Tac_Toe" />
+        <module name="ElevatorSystem" />
       </profile>
     </annotationProcessing>
   </component>

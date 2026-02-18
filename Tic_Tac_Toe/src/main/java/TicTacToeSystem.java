@@ -26,25 +26,21 @@ public class TicTacToeSystem {
     }
 
     public String startGame(){
-
+        Scanner  sc = new Scanner(System.in);
         Boolean noWinner = true;
         while(noWinner){
             Person currentPerson  = people.getFirst();
             people.removeFirst();
             playingBoard.showBoard();
             System.out.println("Enter co-ordinate where you what to place ");
-            Scanner  sc = new Scanner(System.in);
+
             String val =   sc.next();
 
             String[] values = val.split(",");
 
             int row  =  Integer.parseInt(values[0]);
             int col = Integer.parseInt(values[1]);
-            List<Cell> emptySlot = playingBoard.isFree();
-            if(emptySlot.isEmpty()){
-                noWinner=false;
-                continue;
-            }
+
 
             if(playingBoard.addPiece(row,col,currentPerson.getPieceType())==false){
                 System.out.println("This position is already filed, pls provide another place");
@@ -54,6 +50,11 @@ public class TicTacToeSystem {
             if(playingBoard.checkWinner( row, col,currentPerson.getPieceType())){
                 playingBoard.showBoard();
                 return currentPerson.getName();
+            }
+            List<Cell> emptySlot = playingBoard.isFree();
+            if(emptySlot.isEmpty()){
+                noWinner=false;
+                continue;
             }
             people.addLast(currentPerson);
         }
