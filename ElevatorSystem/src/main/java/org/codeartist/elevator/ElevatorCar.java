@@ -40,9 +40,10 @@ public class ElevatorCar {
     int floor;
     int nextStoppage;
 
-    public ElevatorCar(){
+    public ElevatorCar(int id ){
         elevatorState = ElevatorState.IDLE;
         floor =0;
+        this.id = id;
         nextStoppage =0;
     }
     public void showDisplay(){
@@ -57,7 +58,7 @@ public class ElevatorCar {
         if(nextStoppage>=floor){
             System.out.println("Elevator is moving in Upwards direction");
             elevatorState = ElevatorState.UP;
-            for(int i=floor ;i<nextStoppage;i++){
+            for(int i=floor+1 ;i<=nextStoppage;i++){
                 try{
 
                     Thread.sleep(5000);
@@ -70,7 +71,7 @@ public class ElevatorCar {
         }else{
             System.out.println("Elevator is moving in Downward direction");
             elevatorState = ElevatorState.DOWN;
-            for(int i=floor ;i<nextStoppage;i++){
+            for(int i=floor-1 ;i>=nextStoppage;i--){
                 try{
 
                     Thread.sleep(5000);

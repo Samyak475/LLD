@@ -12,6 +12,7 @@ public class NearestElevatorFirst implements ElevatorSelectonStrategy{
     public ElevatorController scheduleElevator(List<ElevatorController> elevatorControllerList, int destination , ElevatorState elevatorState){
         ElevatorController minEffortElevator = null;
         int minEffort =Integer.MAX_VALUE;
+        System.out.println("Using Nearest Elevator First Strategy  ");
         for(ElevatorController controller : elevatorControllerList){
             int nextStoppage = controller.elevatorCar.getNextStoppage();
             if(controller.elevatorCar.getElevatorState().equals(elevatorState)){
@@ -34,6 +35,6 @@ public class NearestElevatorFirst implements ElevatorSelectonStrategy{
                 }
             }
         }
-        return elevatorControllerList.getFirst();
+        return elevatorControllerList.get(0);
     }
 }

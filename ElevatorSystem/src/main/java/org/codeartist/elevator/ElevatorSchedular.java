@@ -13,7 +13,9 @@ public class ElevatorSchedular {
         this.elevatorSelectonStrategy = elevatorSelectonStrategy;
     }
     public void selectAndAssignElevator(int destination , ElevatorState elevatorState){
+        System.out.println("Going for Strategy selection ");
         ElevatorController selectedElevator = elevatorSelectonStrategy.scheduleElevator(elevatorControllerList,destination,elevatorState);
+        System.out.println("As per strategy request will be fulfilled by Elevator :- "+selectedElevator.elevatorCar.getId());
         selectedElevator.addToElevator(destination);
     }
 }

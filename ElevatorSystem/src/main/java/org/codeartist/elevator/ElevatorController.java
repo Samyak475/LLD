@@ -8,7 +8,7 @@ public class ElevatorController  implements Runnable{
     public ElevatorCar elevatorCar;
     public PriorityQueue<Integer> topMinPQ;
     public PriorityQueue<Integer> bottomMaxPQ;
-    private  final static  Object monitor = new Object();
+    private  final   Object monitor = new Object();
     public ElevatorController(ElevatorCar  elevatorCar ){
         this.elevatorCar = elevatorCar;
         topMinPQ = new PriorityQueue<>();
@@ -16,17 +16,18 @@ public class ElevatorController  implements Runnable{
     }
     public void addToElevator(int destination){
         int nextStoppage = elevatorCar.nextStoppage;
+        System.out.println("here to add Destination :- "+destination +" in elevator "+elevatorCar.getId()+ " By thread "+Thread.currentThread().getName());
         if(destination==nextStoppage)return;
         if(destination>nextStoppage){
-            if(!topMinPQ.contains(nextStoppage)){
-                topMinPQ.offer(nextStoppage);
+            if(!topMinPQ.contains(destination)){
+                topMinPQ.offer(destination);
 
             }
         }
         else
         {
-            if(!bottomMaxPQ.contains(nextStoppage)){
-                bottomMaxPQ.offer(nextStoppage);
+            if(!bottomMaxPQ.contains(destination)){
+                bottomMaxPQ.offer(destination);
             }
         }
         synchronized (monitor){

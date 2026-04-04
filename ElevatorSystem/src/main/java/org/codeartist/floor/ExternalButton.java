@@ -9,6 +9,7 @@ public class ExternalButton {
         this.externalDispatcher = externalDispatcher;
     }
     public void pressButton(int destination,ElevatorState elevatorState){
+        System.out.println("Dispatcher routing request with destination :- "+destination+" in direction "+elevatorState);
         externalDispatcher.routeToSchedular(destination,elevatorState);
     }
 }

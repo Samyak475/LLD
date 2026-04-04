@@ -4,14 +4,15 @@ import org.codeartist.dispatcher.ExternalDispatcher;
 import org.codeartist.floor.ExternalButton;
 import org.codeartist.floor.Floor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
-    List<Floor>floors;
+    List<Floor>floors= new ArrayList<>();
     public Building(int floorsN , ExternalDispatcher externalDispatcher){
         for(int i=1;i<=floorsN;i++){
-            Floor floor = new Floor(i,externalDispatcher);
-            floors.add(floor);
+//            Floor floor = new Floor(i,externalDispatcher);
+            floors.add(new Floor(i,externalDispatcher));
         }
     }
     public Floor getFloor(int id){
