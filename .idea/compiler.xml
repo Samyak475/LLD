@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ParkingLot" />
         <module name="Tic_Tac_Toe" />
         <module name="ElevatorSystem" />
+        <module name="ParkingLot" />
+        <module name="SnakeLadderSystem" />
       </profile>
     </annotationProcessing>
   </component>
