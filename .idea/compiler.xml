@@ -12,6 +12,7 @@
         <module name="ParkingLot" />
         <module name="SnakeLadderSystem" />
         <module name="AtmSystem" />
+        <module name="SplitWiseSystem" />
         <module name="VehicleRentalSystem" />
       </profile>
     </annotationProcessing>
